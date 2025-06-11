@@ -1050,13 +1050,13 @@ def pkscreenercli():
             configManager.setConfig(
                 ConfigManager.parser, default=True, showFileCreatedText=False
             )
-        from pkscreener.classes.PKUserRegistration import PKUserRegistration, ValidationResult
-        if args.systemlaunched and not PKUserRegistration.validateToken()[0]:
-            result = PKUserRegistration.login()
-            if result != ValidationResult.Success:
-                OutputControls().printOutput(f"\n[+] {colorText.FAIL}You MUST be a premium/paid user to use this feature!{colorText.END}\n")
-                input("Press any key to exit...")
-                sys.exit(0)
+        # from pkscreener.classes.PKUserRegistration import PKUserRegistration, ValidationResult
+        # if args.systemlaunched and not PKUserRegistration.validateToken()[0]:
+        #     result = PKUserRegistration.login()
+        #     if result != ValidationResult.Success:
+        #         OutputControls().printOutput(f"\n[+] {colorText.FAIL}You MUST be a premium/paid user to use this feature!{colorText.END}\n")
+        #         input("Press any key to exit...")
+        #         sys.exit(0)
 
         if args.systemlaunched and args.options is not None:
             args.systemlaunched = args.options
@@ -1092,12 +1092,12 @@ def pkscreenercli():
         if args.minprice:
             configManager.minLTP = args.minprice
             configManager.setConfig(ConfigManager.parser, default=True, showFileCreatedText=False)
-        global LoggedIn
-        if not LoggedIn and not args.telegram and not args.bot and not args.systemlaunched and not args.testbuild:
-            from pkscreener.classes.PKUserRegistration import PKUserRegistration
-            if not PKUserRegistration.login():
-                sys.exit(0)
-            LoggedIn = True
+        # global LoggedIn
+        # if not LoggedIn and not args.telegram and not args.bot and not args.systemlaunched and not args.testbuild:
+        #     from pkscreener.classes.PKUserRegistration import PKUserRegistration
+        #     if not PKUserRegistration.login():
+        #         sys.exit(0)
+        #     LoggedIn = True
         if args.testbuild and not args.prodbuild:
             OutputControls().printOutput(
                 colorText.FAIL
